@@ -18,13 +18,13 @@ function manual(){
         for(var i = 0; i < cnt; i++){
             if(i%(cnt/100) == 0){
             document.getElementById("pbm").value += 1;
+            }
+        Math.sqrt(Math.random() *1000000);
         }
-    Math.sqrt(Math.random() *1000000);
-    }
-    var end = new Date();
-    end = end.getTime();
-    span = (end - start) / 1000;
-    alert("Fertig Manuall Processing" + "\nDauer: " + span + " Sek.");
+        var end = new Date();
+        end = end.getTime();
+        span = (end - start) / 1000;
+        alert("Fertig Manuall Processing" + "\nDauer: " + span + " Sek.");
     };
 }
 

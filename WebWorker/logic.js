@@ -17,7 +17,7 @@ function manual(){
         //Berechnung
         for(var i = 0; i < cnt; i++){
             if(i%(cnt/100) == 0){
-            document.getElementById("pbm").value += 1;
+                document.getElementById("pbm").value += 1;
             }
             Math.sqrt(Math.random() *1000000);
         }

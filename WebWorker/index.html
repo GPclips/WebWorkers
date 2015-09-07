@@ -2,148 +2,72 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="style.css"/>
-		<script language="javascript" type="text/javascript">
-		    //Variablen
-            var worker;
-            var cntPerc = 0;
-            var cnt = 500000000;
-            var span;
-		
-		//Functions
-            function change(){
-            document.getElementById("idContent").data = "hallohallo"; 
-            }
-            function refresh(){
-                document.getElementById("pbm").value += 1;
-            }
-            function manual(){
-                
-                var manual = document.getElementById("manual");
-                manual.onclick = function(){
-                     var start = new Date();
-                     start = start.getTime();
-                    //Berechnung 
-                    for(var i = 0; i < cnt; i++){
-                        if(i%(cnt/100) == 0){
-                          refresh();
-                        }
-                            Math.sqrt(Math.random() *1000000);     
-                    }
-                    var end = new Date();
-                    end = end.getTime();
-                    span = (end - start) / 1000;
-                alert("Fertig Manuall Processing" + "\nDauer: " + span + " Sek.");
-                };
-            }
-            function get(worker){
-                worker.onmessage = function(event){
-                    if(cntPerc < 100){
-                        document.getElementById("pbw").value += 1;
-                        cntPerc += 1;    
-                    }else{
-                        span = event.data;
-                        alert("Fertig Web Workers Processing" + "\nDauer: " + span + " Sek.");   
-                    }                       
-                } 
-            }
-            function send(){
-                if(typeof(worker) == "undefined"){
-                    worker = new Worker("worker.js");    
-                }
-                       
-                var start = document.getElementById("start");
-                start.onclick = function(){
-                worker.postMessage(cnt);
-                }
-            }
-            function errorHandling(){
-                worker.onerror = function(event){
-                    alert('Fehlermeldung: ' + event.message + "\n\nURL: " + event.filename + "\n\nLine: " + event.lineno);
-                    event.preventDefault();
-                }
-            }
-            
-            </script>
-
-		<title>WebPage</title>
+		<script language="javascript" type="text/javascript" src="logic.js"></script>
+        <title>WebPage</title>
 	</head>
 	<body>
 	    <div id="home"></div>
 		<!--Header-->
 		<div id="idheader">
-    			<a href="#home" class="menu" id="hom">Home</a>
-    			<a href="#history" class="menu" id="mGf">History</a>
-    			<a href="#price" class="menu" id="pre">Prices</a>
-    			<a href="#fotos" class="menu" id="bil">Pictures</a>
-    			<a href="http://127.0.0.1/documents/reveal.js-master/reveal.js-master/#/3" class="menu" id="bil">zur Pr&auml;sentation</a>
+			<a href="#home" class="menu" id="hom">Home</a>
+			<a href="#history" class="menu" id="mGf">History</a>
+			<a href="#price" class="menu" id="pre">Prices</a>
+			<a href="#fotos" class="menu" id="bil">Pictures</a>
+			<a href="../Presentation/#/3" class="menu" id="bil">zur Pr&auml;sentation</a>
 		</div>
         <!--Content-->
 	    <div class="content" id="idContent">
-        
-        
             <p class="head">Home</p>
-            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-        
-        
-        
-        <div class="spaceSub" id="history"></div>
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <div class="spaceSub" id="history"></div>
             <p class="head">History</p>
-            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-        
-        
-        <div class="spaceSub" id="price"></div>
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <div class="spaceSub" id="price"></div>
             <p class="head">Prices</p>
-            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-        
-        
-        <div class="spaceSub" class="spaceSub" id="fotos"></div>
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <div class="spaceSub" class="spaceSub" id="fotos"></div>
             <p class="head">Pictures</p>
-            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-        
-        
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
         </div>
-        
-        
-        <div class="content">
+        <div class="content">
             <div  id="m">
-            <p class="selHead">Manuell starten</p>
+                <p class="selHead">Manuell starten</p>
                 <div class="button" id="manual">Senden</div>
-                <script language="javascript" type="text/javascript">
-                    manual();
-                </script>
+                <script language="javascript" type="text/javascript">manual();</script>
                 <progress id="pbm" value="0" max="100"></progress>
             </div>
             <div  id="w">
-            <p class="selHead">Via Web Workers</p>
+                <p class="selHead">Via Web Workers</p>
                 <div class="button" id="start">Senden</div>
                 <script language="javascript" type="text/javascript">
-                send();
-                get(worker);
-                errorHandling();
+                    send();
+                    get(worker);
+                    errorHandling();
                 </script>
                 <progress id="pbw" value="0" max="100"></progress>
             </div>                
-        </div>	
+        </div>
+    </body>	
 </html>
 	
 		

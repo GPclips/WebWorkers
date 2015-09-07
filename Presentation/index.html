@@ -54,7 +54,7 @@
                     </ul>
 				</section>
 				<section>
-					<h2>Konzept der WebWorker</h2>
+					<h2>Konzept der Web Worker</h2>
 					<ul>
 					    <li>Die Abarbeitung erfolgt au&szlig;erhalb der normalen Queue</li>
                         <li>Sie arbeiten isoliert vom Rest der Webseite auf einer seperaten Ebene und k&ouml;nnen das DOM der Webseite dementsprechend nicht selbst&auml;ndig &auml;ndern</li>
@@ -71,7 +71,7 @@
 						<h2>Web Worker erzeugen</h2>
 						<ul>		
     						<li>Web Worker sind Objekte</li>
-                            <li>Der Aktualparameter enth&auml;lt die Datei, welche im Hintergrund ausgef&uuml;hrt werden soll</li>
+                            <li>Der Aktualparameter enth&auml;lt die Datei, welche asynchron ausgef&uuml;hrt werden soll</li>
 						</ul>
                         <br>
 						<pre>
@@ -170,7 +170,7 @@ worker.onerror = function(event){
     alert('Fehlermeldung: ' + event.message + 
           "\n\nURL: " + event.filename + 
           "\n\nLine: " + event.lineno);
-    //canceln des Events, da Fehler besteht
+    //canceln des weiterreichens des Events
     event.preventDefault();
                 }
 					   </code>

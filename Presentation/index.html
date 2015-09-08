@@ -48,18 +48,19 @@
 				<section>
 					<h2>Einleitung</h2>
 					<ul>
-                        <li>Tasks im Browser werden von nur einem Prozess abgearbeitet (sequentiell)</li>
-                        <li>Nachfolgende Tasks landen in einer Warteschlange (Queue)</li>
-                        <li>Extrem gro&szlig;e Tasks blockieren den zust&auml;ndigen Prozess & verschlechtern die Performanz der Webseite</li>
+                        <li>Tasks im Browser sind sequentiell</li>
+                        <li>Nachfolgende Tasks -> Warteschlange</li>
+                        <li>Performanz und Prozessblockaden</li>
                     </ul>
 				</section>
 				<section>
 					<h2>Konzept der Web Worker</h2>
 					<ul>
-					    <li>Die Abarbeitung erfolgt au&szlig;erhalb der normalen Queue</li>
-                        <li>Sie arbeiten isoliert vom Rest der Webseite auf einer seperaten Ebene und k&ouml;nnen das DOM der Webseite dementsprechend nicht selbst&auml;ndig &auml;ndern</li>
-                        <li>Die Ebene der WebWorker stellt eine Plattform f&uuml;r auszuf&uuml;hrende Skripte dar</li>
-                        <li>Kommunikationsaustausch zwischen dem Browser (der eigentlichen Webseite) und dem Web Worker erfolgt via Events</li>
+					    <li>Au&szlig;erhalb der normalen Queue</li>
+                        <li>Isoliert vom Rest der Webseite auf einen Threads</li>
+                        <li>K&ouml;nnen das DOM nicht selbst&auml;ndig &auml;ndern</li>
+                        <li>Plattform f&uuml;r auszuf&uuml;hrende Skripte</li>
+                        <li>Kommunikationsaustausch via Events</li>
                     </ul>
 				</section>
 				<section>
